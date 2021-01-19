@@ -18,7 +18,7 @@ namespace appUngurasuCriptography
         }
 
         static string[,] matrice = new string[5, 5];
-        static string[] litere = new string[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
+        static string[] litere = new string[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
         string[,] matrice_f = new string[27, 27];
         string[,] matrice_i = new string[27, 27];
         string key = "";

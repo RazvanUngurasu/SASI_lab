@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 
 namespace appUngurasuCriptography
@@ -17,16 +18,17 @@ namespace appUngurasuCriptography
             InitializeComponent();
         }
         static string[,] matrice = new string[5, 5];
-        static string[] litere = new string[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
+        static string[] litere = new string[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
         string[,] matrice_f = new string[27, 27];
         string[,] matrice_i = new string[27, 27];
         string key = "";
 
-        public void creareMatrice()
+        public void creareMatrice(string key)
         {
 
-            key = textBox3.Text;
+            
             key = key.ToUpper();
+            key = stergereDuplicate(key);
             int[] vector = new int[26];
             int nr = 0;
             nr = key.Length;
@@ -70,11 +72,12 @@ namespace appUngurasuCriptography
         public static void matrix(string cheie)
         {
             cheie = cheie.ToUpper();
-            cheie = cheie.Replace("J", "I");
+            //cheie = cheie.Replace("J", "I");
             cheie = stergereDuplicate(cheie);
             cheie = stergereCaractere(cheie);
             StringBuilder sb = new StringBuilder();
             sb.Append(cheie);
+            
             for (int i = 0; i < litere.Length; i++)
             {
                 if (sb.ToString().Contains(litere[i]) == false)
@@ -91,6 +94,7 @@ namespace appUngurasuCriptography
                     k++;
                 }
             }
+            
 
 
         }
@@ -110,14 +114,15 @@ namespace appUngurasuCriptography
 
 
 
-        public string Decriptare2(string textCriptat)
+        public string DecriptarePlayfair(string textCriptat, string cheie)
         {
+           
 
-            if (textCriptat.Length % 2 != 0)
-            {
-                textCriptat = textCriptat.Insert(textCriptat.Length, "R");
-            }
-            matrix(textBox3.Text);
+            //if (textCriptat.Length % 2 != 0)
+            //{
+            //    textCriptat = textCriptat.Insert(textCriptat.Length, "R");
+            //}
+            matrix(cheie);
 
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < textCriptat.Length - 1; i = i + 2)
@@ -196,7 +201,7 @@ namespace appUngurasuCriptography
 
         private void button1_Click(object sender, EventArgs e)
         {
-            textBox1.Text = Decriptare2(textBox2.Text);
+            textBox1.Text = DecriptarePlayfair(textBox2.Text, textBox3.Text);
         }
     }
 }
