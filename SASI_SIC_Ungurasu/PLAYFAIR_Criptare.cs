@@ -121,13 +121,13 @@ namespace appUngurasuCriptography
             {
                 if (textCriptat[i] == textCriptat[i + 1])
                 {
-                    textCriptat = textCriptat.Insert(i + 1, "X");
+                    textCriptat = textCriptat.Insert(i + 1, "Z");
                 }
             }
 
             if (textCriptat.Length % 2 != 0)
             {
-                textCriptat = textCriptat.Insert(textCriptat.Length, "B");
+                textCriptat = textCriptat.Insert(textCriptat.Length, "R");
             }
             matrix(textBox3.Text);
 

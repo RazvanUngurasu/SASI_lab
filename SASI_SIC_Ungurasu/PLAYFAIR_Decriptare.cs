@@ -72,7 +72,7 @@ namespace appUngurasuCriptography
         public static void matrix(string cheie)
         {
             cheie = cheie.ToUpper();
-            //cheie = cheie.Replace("J", "I");
+            cheie = cheie.Replace("J", "I");
             cheie = stergereDuplicate(cheie);
             cheie = stergereCaractere(cheie);
             StringBuilder sb = new StringBuilder();
@@ -117,11 +117,6 @@ namespace appUngurasuCriptography
         public string DecriptarePlayfair(string textCriptat, string cheie)
         {
            
-
-            //if (textCriptat.Length % 2 != 0)
-            //{
-            //    textCriptat = textCriptat.Insert(textCriptat.Length, "R");
-            //}
             matrix(cheie);
 
             StringBuilder sb = new StringBuilder();
